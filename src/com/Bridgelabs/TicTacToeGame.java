@@ -1,5 +1,6 @@
 package com.Bridgelabs;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -10,6 +11,7 @@ public class TicTacToeGame {
         char userLetter = chooseUserLetter(userInput);
         char computerLetter = (userLetter == 'X') ? 'O' : 'X';
         showBoard(board);
+        int userMove = getUserMove(board, userInput);
     }
 
     private static char[] createBoard() {
@@ -29,6 +31,18 @@ public class TicTacToeGame {
         System.out.println(" " + board[4] + " | " + board[5] + " | " + board[6]);
         System.out.println("-----------");
         System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9]);
+    }
+    private static int getUserMove(char[] board, Scanner userInput) {
+        Integer[] validCells = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        while (true) {
+            System.out.print("What is your next move? (1-9: ");
+            int index = userInput.nextInt();
+            if (Arrays.asList(validCells).contains(index) && isSpaceFree(board, index))
+                return index;
+        }
+    }
+    private static boolean isSpaceFree(char[] board, int index) {
+        return board[index] == ' ';
     }
 }
 
