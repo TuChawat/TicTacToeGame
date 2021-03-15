@@ -9,6 +9,7 @@ public class TicTacToeGame {
         Scanner userInput = new Scanner(System.in);
         char userLetter = chooseUserLetter(userInput);
         char computerLetter = (userLetter == 'X') ? 'O' : 'X';
+        showBoard(board);
     }
 
     private static char[] createBoard() {
@@ -22,7 +23,13 @@ public class TicTacToeGame {
         System.out.print("Choose your Letter: ");
         return userInput.next().toUpperCase().charAt(0);
     }
+    private static void showBoard(char[] board) {
+        System.out.println("\n " + board[1] + " | " + board[2] + " | " + board[3]);
+        System.out.println("-----------");
+        System.out.println(" " + board[4] + " | " + board[5] + " | " + board[6]);
+        System.out.println("-----------");
+        System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9]);
+    }
 }
-
 
 
